@@ -1,0 +1,28 @@
+
+entity Book {
+	name String
+    sequenceNumber String
+    quantityType QuantityType
+}
+
+entity Sale {
+	quantity Integer,
+    price BigDecimal,
+    sum BigDecimal,
+    saleType SaleType
+}
+
+enum SaleType {
+    INCOMING, OUTGOING
+}
+enum QuantityType {
+    PIECE
+}
+
+relationship ManyToOne {
+	Sale{book} to Book
+}
+// Set pagination options
+paginate * with pagination 
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
